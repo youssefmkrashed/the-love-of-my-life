@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To My Love, Fatma 💌</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(#ffe6f0, #fff0f5);
+      color: #5a0033;
+      overflow: hidden;
+    }
+
+    #lockScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 10px;
+      border: 2px solid pink;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: pink;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #content {
+      text-align: center;
+      padding: 2rem;
+      display: none;
+    }
+
+    .image {
+      width: 200px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .letter {
+      display: none;
+      background: #fff0f5;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 0 10px #ff99cc;
+      text-align: left;
+    }
+
+    .btn-show {
+      background: #ff99cc;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Lock screen -->
+<div id="lockScreen">
+  <h2>Enter the secret password 💖</h2>
+  <input type="password" id="pass" placeholder="Enter password">
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<!-- Main content -->
+<div id="content">
+  <img class="image" src="https://cdn.pixabay.com/photo/2023/04/30/16/34/hippopotamus-7960230_1280.png" alt="Hippo">
+  <h1>To My Love, Fatma 💕</h1>
+  <p>This hippo came all this way to deliver something special just for you...</p>
+  <button class="btn-show" onclick="showLetter()">Read Love Letter</button>
+  
+  <div class="letter" id="loveLetter">
+    <p>
+      My dearest Fatma,<br><br>
+      Words often fail me when I try to describe what you mean to me. You’ve brought warmth, joy, and a sense of completeness into my life that I never knew I was missing.  
+      Your smile lights up my darkest days, and your presence fills the emptiness I never knew I carried.<br><br>
+      I want you to know that you are truly loved—not just today, but every single day.  
+      I’ll always be here for you, through every sunrise and every storm.  
+      You are my forever and always.<br><br>
+      With all my love,<br>
+      <strong>Youssef M. Krashed 💘</strong>
+    </p>
+  </div>
+</div>
+
+<!-- Floating hearts -->
+<script>
+  function unlock() {
+    const p = document.getElementById("pass").value;
+    if (p === "12102005") {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      generateHearts();
+    } else {
+      alert("Wrong password 💔");
+    }
+  }
+
+  function showLetter() {
+    document.getElementById("loveLetter").style.display = "block";
+  }
+
+  function generateHearts() {
+    for (let i = 0; i < 30; i++) {
+      let h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.top = Math.random() * 100 + "vh";
+      h.style.animationDuration = (3 + Math.random() * 3) + "s";
+      h.style.background = ["#ff4d4d", "#ff6699", "#ff3366"][Math.floor(Math.random() * 3)];
+      document.body.appendChild(h);
+    }
+  }
+</script>
+
+<!-- Optional: Background music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>
