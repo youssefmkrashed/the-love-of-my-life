@@ -181,3 +181,14 @@
 
 </body>
 </html>
+<!-- Fatma's Picture -->
+<div style="margin-top: 30px; text-align: center;">
+  <img src="fatma.jpg" alt="My beautiful Fatma 💖"
+    style="width: 280px; border-radius: 16px; box-shadow: 0 0 15px #ff99cc; transition: transform 0.3s ease;"
+    onmouseover="this.style.transform='scale(1.05)'"
+    onmouseout="this.style.transform='scale(1)'"
+  />
+  <p style="margin-top: 10px; font-style: italic; color: #e75480;">
+    This is the smile I’d choose in every lifetime. 💕
+  </p>
+</div>
